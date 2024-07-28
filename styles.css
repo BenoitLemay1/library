@@ -1,0 +1,19 @@
+*,
+*::after,
+*::before {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+#container {
+  border: solid 3px black;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.book-card {
+  border: solid 1px blue;
+}
