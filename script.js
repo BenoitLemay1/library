@@ -32,7 +32,6 @@ newBookBtn.addEventListener("click", () => {
   dialog.showModal();
 });
 
-
 addBookBtn.addEventListener("click", () => {
   const newBookTitle = document.getElementById("new-book-title");
   const newBookAuthor = document.getElementById("new-book-author");
@@ -46,6 +45,7 @@ addBookBtn.addEventListener("click", () => {
     newBookStatus.value
   );
 
+  addBookToLibrary(newBook);
   addBookCard(newBook);
   dialog.close();
 });
@@ -77,6 +77,7 @@ function addBookCard(book) {
   deleteBtn.textContent = "Delete Book";
   deleteBtn.addEventListener("click", () => {
     bookCard.remove();
+    myLibrary.splice(myLibrary.indexOf(book), 1);
   });
 
   bookCard.appendChild(bookTitle);
