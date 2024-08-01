@@ -67,18 +67,27 @@ function addBookCard(book) {
   const bookTitle = document.createElement("p");
   const bookAuthor = document.createElement("p");
   const bookPages = document.createElement("p");
-  const bookStatus = document.createElement("p");
+  // const bookStatus = document.createElement("p");
+  const bookStatus = document.createElement("div");
+  bookStatus.id = "status-container";
+  const bookStatusBtn = document.createElement("div");
+  bookStatusBtn.className = "toggle";
+  bookStatusBtn.addEventListener("click", () => {
+    bookStatusBtn.classList.toggle("on");
+  });
   const deleteBtn = document.createElement("button");
 
   bookTitle.textContent = `Title: ${book.title}`;
   bookAuthor.textContent = `Author: ${book.author}`;
   bookPages.textContent = `Number of pages: ${book.pages} pages`;
-  bookStatus.textContent = `Status: ${book.status}`;
+  // bookStatus.textContent = `Status: ${book.status}`;
   deleteBtn.textContent = "Delete Book";
   deleteBtn.addEventListener("click", () => {
     bookCard.remove();
     myLibrary.splice(myLibrary.indexOf(book), 1);
   });
+
+  bookStatus.appendChild(bookStatusBtn);
 
   bookCard.appendChild(bookTitle);
   bookCard.appendChild(bookAuthor);
