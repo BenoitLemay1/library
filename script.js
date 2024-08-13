@@ -74,6 +74,12 @@ function addBookCard(book) {
   bookStatusBtn.className = "toggle";
   bookStatusBtn.addEventListener("click", () => {
     bookStatusBtn.classList.toggle("on");
+    if (bookStatusBtn.classList.contains("on")) {
+      book.status = "read";
+    } else {
+      book.status = "unread";
+    }
+    console.log(myLibrary);
   });
   const deleteBtn = document.createElement("button");
 
@@ -85,6 +91,7 @@ function addBookCard(book) {
   deleteBtn.addEventListener("click", () => {
     bookCard.remove();
     myLibrary.splice(myLibrary.indexOf(book), 1);
+    console.log(myLibrary);
   });
 
   bookStatus.appendChild(bookStatusBtn);
@@ -96,4 +103,16 @@ function addBookCard(book) {
   bookCard.appendChild(deleteBtn);
 
   libraryContainer.appendChild(bookCard);
+  console.log(myLibrary);
 }
+
+// function createUser(name) {
+//   const discordName = "@" + name;
+//   let reputation =0;
+//   const getReputation =()=>reputation;
+//   const giveReputation = ()=>reputation++;
+//   return {name, discordName, getReputation, giveReputation};
+// }
+
+// const josh = createUser("josh");
+// console.log(josh.giveReputation()+ josh.getReputation());
